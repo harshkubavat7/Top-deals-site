@@ -129,6 +129,27 @@ header h1 {
   background: #e68a00;
 }
 
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.whatsapp-btn, .telegram-btn {
+  background: #25D366; /* WhatsApp green */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.telegram-btn {
+  background: #0088cc; /* Telegram blue */
+}
+
+
 /* 📱 Extra tweaks for very small screens */
 @media (max-width: 500px) {
   header h1 {
