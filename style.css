@@ -29,6 +29,8 @@ header h1 {
   flex-wrap: wrap;   /* ✅ makes inputs wrap on small screens */
 }
 
+
+
 .controls input,
 .controls select {
   padding: 8px;
@@ -129,24 +131,36 @@ header h1 {
   background: #e68a00;
 }
 
-.social-buttons {
+.social-icons {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
-.whatsapp-btn, .telegram-btn {
-  background: #25D366; /* WhatsApp green */
+.social-icons a {
+  font-size: 28px;
   color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   text-decoration: none;
-  font-weight: bold;
+  transition: transform 0.2s ease;
 }
 
-.telegram-btn {
-  background: #0088cc; /* Telegram blue */
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+
+.social-icons .whatsapp {
+  background: #25D366;
+}
+
+.social-icons .telegram {
+  background: #0088cc;
 }
 
 
