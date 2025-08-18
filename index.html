@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amazon Deals</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "ce5fc96a-6a46-4012-8c95-d58ba991bb0b",
+    });
+  });
+</script>
 </head>
 <body>
   <header>
