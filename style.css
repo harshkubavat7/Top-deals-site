@@ -1,19 +1,21 @@
+/* 🌐 Global */
 body {
   font-family: Arial, sans-serif;
-  background: #0d1117; /* dark background */
+  background: #f4f6fa;  /* light gray background */
   margin: 0;
   padding: 0;
-  color: #e6edf3; /* light text */
+  color: #111;
 }
 
-/* 🌙 Navbar Dark Theme */
+/* 🔵 Navbar */
 header {
-  background: linear-gradient(90deg, #0a0a0a, #0f172a);
-  padding: 10px;   /* smaller padding */
+  background: #2563eb; /* blue navbar */
+  padding: 10px;
   text-align: center;
   color: white;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* shadow */
 }
 
 header h1 {
@@ -21,52 +23,59 @@ header h1 {
   font-size: 20px;
 }
 
-/* Controls in one compact row */
+/* Controls (Search, Filter, Sort) */
 .controls {
   display: flex;
   justify-content: center;
-  gap: 6px;
-  flex-wrap: nowrap;    /* keep in one line */
-  overflow-x: auto;     /* scroll if too small */
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   padding: 5px 0;
 }
 
 .controls input,
 .controls select {
   padding: 6px;
-  font-size: 13px;
-  border: none;
-  border-radius: 5px;
-  min-width: 120px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  min-width: 140px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .controls button {
-  padding: 6px 10px;
-  background: #2563eb;
+  padding: 6px 12px;
+  background: #1d4ed8; /* darker blue */
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 13px;
   white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
+.controls button:hover {
+  background: #153eaa;
+}
 
-/* Deals container */
+/* 🛍 Product Grid */
 #deals-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
-  padding: 20px;
+  gap: 15px;
+  padding: 15px;
   box-sizing: border-box;
 }
 
+/* Product Cards */
 .deal-card {
-  background: #161b22;
+  background: white;
   border-radius: 10px;
   padding: 12px;
   position: relative;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -74,15 +83,15 @@ header h1 {
 }
 
 .deal-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+  transform: translateY(-4px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
 }
 
 .discount-badge {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: #dc2626;
+  background: #2563eb; /* blue badge */
   color: white;
   padding: 5px 8px;
   font-size: 12px;
@@ -100,21 +109,21 @@ header h1 {
 .deal-title {
   font-weight: bold;
   font-size: 16px;
-  margin-bottom: 6px;
-  color: #f3f4f6;
+  margin-bottom: 5px;
+  color: #111;
 }
 
 .deal-prices {
   font-size: 20px;
-  margin-bottom: 10px;
-  color: #22c55e;
+  margin-bottom: 8px;
+  color: #15803d; /* green price */
   font-weight: bold;
 }
 
 .old-price {
   text-decoration: line-through;
-  color: #ef4444;
-  font-size: 16px;
+  color: #dc2626;
+  font-size: 15px;
   font-weight: bold;
   margin-left: 5px;
 }
@@ -129,64 +138,78 @@ header h1 {
   font-weight: bold;
   text-decoration: none;
   transition: background 0.3s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .deal-button:hover {
   background: #1d4ed8;
 }
 
-/* Social icons row */
+/* 📱 Social Icons */
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin: 8px 0;
-  flex-wrap: wrap;
+  gap: 12px;
+  margin: 10px 0;
 }
 
 .social-icons a {
   font-size: 22px;
-  width: 38px;
-  height: 38px;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-.social-icons a i {
-  transition: color 0.3s ease;
+.social-icons a:hover {
+  transform: scale(1.1);
 }
 
-/* Install button compact */
+.social-icons .whatsapp {
+  background: #25D366;
+}
+
+.social-icons .telegram {
+  background: #0088cc;
+}
+
+/* Install Button */
 .install-button {
-  padding: 6px 12px;
+  padding: 8px 14px;
+  background: #2563eb;
+  color: white;
   font-size: 14px;
-  border-radius: 5px;
-  margin-top: 0;
-}
-.install-button:hover {
-  background: #047857;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 2px;
+  z-index: 20;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* 📱 Special tweaks for very small screens */
+.install-button:hover {
+  background: #1d4ed8;
+}
+
+/* 📱 Small Screens */
 @media (max-width: 500px) {
   header h1 {
     font-size: 16px;
   }
-  .controls {
-    gap: 5px;
-  }
   .controls input,
   .controls select {
-    min-width: 100px;
+    min-width: 110px;
     font-size: 12px;
   }
   .controls button {
     font-size: 12px;
     padding: 5px 8px;
-  }
-  .social-icons {
-    gap: 8px;
-  }
-  .install-button {
-    font-size: 13px;
-    padding: 5px 10px;
   }
 }
