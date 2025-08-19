@@ -122,17 +122,21 @@ let deferredPrompt;
 const installBtn = document.getElementById("installBtn");
 
 window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
+  e.preventDefault(); // stop auto prompt
   deferredPrompt = e;
-  installBtn.style.display = "block"; // Show button
+  installBtn.style.display = "inline-block"; // show button
 });
 
 installBtn.addEventListener("click", async () => {
-  installBtn.style.display = "none";
   if (deferredPrompt) {
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User response to install: ${outcome}`);
+    if (outcome === "accepted") {
+      console.log("✅ User accepted install");
+    } else {
+      console.log("❌ User dismissed install");
+    }
     deferredPrompt = null;
+    installBtn.style.display = "none"; // hide again
   }
 });
