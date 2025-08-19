@@ -1,84 +1,93 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f9f9f9;
+  background: #0d1117; /* dark background */
   margin: 0;
   padding: 0;
+  color: #e6edf3; /* light text */
 }
 
 header {
-  background: #ff9900;
-  padding: 15px;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b); /* dark blue gradient */
+  padding: 12px 15px;
   text-align: center;
-  color: white;
-
-  position: sticky;   /* ✅ keeps header visible */
+  color: #ffffff;
+  position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  border-bottom: 1px solid #2c3e50;
 }
 
-
 header h1 {
-  margin: 0 0 10px 0;
-  font-size: 22px;
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #4ea8de; /* accent blue */
 }
 
 .controls {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;   /* ✅ makes inputs wrap on small screens */
+  gap: 8px;
+  flex-wrap: wrap;
 }
-
-
 
 .controls input,
 .controls select {
-  padding: 8px;
+  padding: 7px 10px;
   font-size: 14px;
-  border: none;
+  border: 1px solid #2d3748;
   border-radius: 5px;
-  min-width: 150px;
+  background: #161b22;
+  color: #e6edf3;
+  min-width: 140px;
 }
 
 .controls button {
-  padding: 8px 12px;
-  background: #d9534f;
+  padding: 7px 12px;
+  background: #2563eb; /* blue button */
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-/* ✅ Responsive grid for products */
+.controls button:hover {
+  background: #1d4ed8;
+}
+
+/* Deals container */
 #deals-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 15px;
-  padding: 15px;
+  gap: 18px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
 .deal-card {
-  background: white;
-  border-radius: 8px;
-  padding: 10px;
+  background: #161b22;
+  border-radius: 10px;
+  padding: 12px;
   position: relative;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.5);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .deal-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.7);
 }
 
 .discount-badge {
   position: absolute;
   top: 10px;
   left: 10px;
-  background: red;
+  background: #dc2626;
   color: white;
   padding: 5px 8px;
   font-size: 12px;
@@ -96,20 +105,20 @@ header h1 {
 .deal-title {
   font-weight: bold;
   font-size: 16px;
-  margin-bottom: 5px;
-  color: #111;
+  margin-bottom: 6px;
+  color: #f3f4f6;
 }
 
 .deal-prices {
   font-size: 20px;
   margin-bottom: 10px;
-  color: rgb(8, 155, 8);
+  color: #22c55e;
   font-weight: bold;
 }
 
 .old-price {
   text-decoration: line-through;
-  color: rgb(237, 37, 37);
+  color: #ef4444;
   font-size: 16px;
   font-weight: bold;
   margin-left: 5px;
@@ -118,41 +127,42 @@ header h1 {
 .deal-button {
   display: block;
   text-align: center;
-  background: #ff9900;
+  background: #2563eb;
   color: white;
   padding: 8px;
-  border-radius: 5px;
+  border-radius: 6px;
   font-weight: bold;
   text-decoration: none;
   transition: background 0.3s;
 }
 
 .deal-button:hover {
-  background: #e68a00;
+  background: #1d4ed8;
 }
 
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin: 15px 0;
+  gap: 12px;
+  margin: 12px 0;
 }
 
 .social-icons a {
-  font-size: 28px;
+  font-size: 24px;
   color: white;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   text-decoration: none;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .social-icons a:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255,255,255,0.4);
 }
 
 .social-icons .whatsapp {
@@ -163,8 +173,24 @@ header h1 {
   background: #0088cc;
 }
 
+.install-button {
+  padding: 8px 14px;
+  background: #059669;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: background 0.3s ease;
+}
 
-/* 📱 Extra tweaks for very small screens */
+.install-button:hover {
+  background: #047857;
+}
+
+/* 📱 Mobile tweaks */
 @media (max-width: 500px) {
   header h1 {
     font-size: 18px;
@@ -176,19 +202,3 @@ header h1 {
     font-size: 14px;
   }
 }
-
-.install-button {
-  padding: 10px 15px;
-  background: #25d366;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-.install-button:hover {
-  background: #1ebd59;
-}
-

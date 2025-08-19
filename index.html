@@ -4,52 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Amazon Deals</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
   <link rel="manifest" href="manifest.json">
 
-  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "ce5fc96a-6a46-4012-8c95-d58ba991bb0b",
+  <!-- OneSignal SDK -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "ce5fc96a-6a46-4012-8c95-d58ba991bb0b",
+      });
     });
-  });
-</script>
+  </script>
 </head>
 <body>
+  <!-- ✅ Header/Navbar -->
   <header>
-  <h1>🔥 Today's Amazon Deals</h1>
-  <div class="controls">
-    <input type="text" id="search" placeholder="Search products..." />
-    <select id="categoryFilter">
-      <option value="all">All Categories</option>
-    </select>
-    <button id="sortDiscount">Sort by Discount</button>
+    <h1>🔥 Today's Amazon Deals</h1>
     
-  </div >
-  <div class="social-icons">
-  <a href="https://whatsapp.com/channel/YOURCHANNELID" target="_blank" class="whatsapp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <a href="https://t.me/YOURTELEGRAMUSERNAME" target="_blank" class="telegram">
-    <i class="fab fa-telegram"></i>
-  </a>
-</div>
-<button id="installBtn" style="display:none;" class="install-button">📲 Install App</button>
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search products..." />
+      <select id="categoryFilter">
+        <option value="all">All Categories</option>
+      </select>
+      <button id="sortDiscount">Sort by Discount</button>
+    </div>
 
+    <!-- ✅ Social + Install Button -->
+    <div class="social-icons">
+      <a href="https://whatsapp.com/channel/YOURCHANNELID" target="_blank" class="whatsapp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://t.me/YOURTELEGRAMUSERNAME" target="_blank" class="telegram">
+        <i class="fab fa-telegram"></i>
+      </a>
+      <button id="installBtn" style="display:none;" class="install-button">📲 Install App</button>
+    </div>
+  </header>
 
-
-</header>
-
-
-
+  <!-- ✅ Deals Section -->
   <main id="deals-container">
     Loading deals...
   </main>
 
+  <!-- ✅ JS -->
   <script src="script.js"></script>
 </body>
 </html>
