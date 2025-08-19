@@ -102,3 +102,37 @@ if ("serviceWorker" in navigator) {
     .then(() => console.log("✅ Service Worker Registered"))
     .catch(err => console.error("Service Worker failed:", err));
 }
+
+// Register Service Worker
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js")
+    .then(() => console.log("✅ Service Worker Registered"))
+    .catch(err => console.error("SW failed:", err));
+}
+
+// OneSignal Push Config
+window.OneSignal = window.OneSignal || [];
+OneSignal.push(function() {
+  OneSignal.init({
+    appId: "YOUR-ONESIGNAL-APP-ID", // Replace with your OneSignal ID
+  });
+});
+
+let deferredPrompt;
+const installBtn = document.getElementById("installBtn");
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.style.display = "block"; // Show button
+});
+
+installBtn.addEventListener("click", async () => {
+  installBtn.style.display = "none";
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User response to install: ${outcome}`);
+    deferredPrompt = null;
+  }
+});
