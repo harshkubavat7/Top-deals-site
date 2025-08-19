@@ -212,7 +212,24 @@ header h1 {
     font-size: 12px;
     padding: 5px 8px;
   }
-   #deals-container {
-    grid-template-columns: repeat(2, 1fr);
+  #deals-container {
+    grid-template-columns: repeat(2, 1fr);  /* 2 equal columns */
+    gap: 10px;
+  }
+
+  .deal-card img {
+    height: 140px; /* shrink images */
+  }
+
+  .deal-title {
+    font-size: 14px;
+  }
+
+  .deal-prices {
+    font-size: 16px;
+  }
+
+  .old-price {
+    font-size: 13px;
   }
 }
