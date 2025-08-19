@@ -6,56 +6,51 @@ body {
   color: #e6edf3; /* light text */
 }
 
+/* 🌙 Navbar Dark Theme */
 header {
-  background: linear-gradient(135deg, #0d1b2a, #1b263b); /* dark blue gradient */
-  padding: 12px 15px;
+  background: linear-gradient(90deg, #0a0a0a, #0f172a);
+  padding: 10px;   /* smaller padding */
   text-align: center;
-  color: #ffffff;
-  position: sticky;
+  color: white;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-  border-bottom: 1px solid #2c3e50;
 }
 
 header h1 {
   margin: 0 0 8px 0;
   font-size: 20px;
-  font-weight: bold;
-  color: #4ea8de; /* accent blue */
 }
 
+/* Controls in one compact row */
 .controls {
   display: flex;
   justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 6px;
+  flex-wrap: nowrap;    /* keep in one line */
+  overflow-x: auto;     /* scroll if too small */
+  padding: 5px 0;
 }
 
 .controls input,
 .controls select {
-  padding: 7px 10px;
-  font-size: 14px;
-  border: 1px solid #2d3748;
+  padding: 6px;
+  font-size: 13px;
+  border: none;
   border-radius: 5px;
-  background: #161b22;
-  color: #e6edf3;
-  min-width: 140px;
+  min-width: 120px;
 }
 
 .controls button {
-  padding: 7px 12px;
-  background: #2563eb; /* blue button */
+  padding: 6px 10px;
+  background: #2563eb;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-size: 13px;
+  white-space: nowrap;
 }
 
-.controls button:hover {
-  background: #1d4ed8;
-}
 
 /* Deals container */
 #deals-container {
@@ -140,65 +135,58 @@ header h1 {
   background: #1d4ed8;
 }
 
+/* Social icons row */
 .social-icons {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin: 12px 0;
+  gap: 10px;
+  margin: 8px 0;
+  flex-wrap: wrap;
 }
 
 .social-icons a {
-  font-size: 24px;
-  color: white;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 22px;
+  width: 38px;
+  height: 38px;
 }
 
-.social-icons a:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(255,255,255,0.4);
+.social-icons a i {
+  transition: color 0.3s ease;
 }
 
-.social-icons .whatsapp {
-  background: #25D366;
-}
-
-.social-icons .telegram {
-  background: #0088cc;
-}
-
+/* Install button compact */
 .install-button {
-  padding: 8px 14px;
-  background: #059669;
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-left: 8px;
-  transition: background 0.3s ease;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-top: 0;
 }
-
 .install-button:hover {
   background: #047857;
 }
 
-/* 📱 Mobile tweaks */
+/* 📱 Special tweaks for very small screens */
 @media (max-width: 500px) {
   header h1 {
-    font-size: 18px;
+    font-size: 16px;
   }
-  .deal-prices {
-    font-size: 18px;
+  .controls {
+    gap: 5px;
   }
-  .old-price {
-    font-size: 14px;
+  .controls input,
+  .controls select {
+    min-width: 100px;
+    font-size: 12px;
+  }
+  .controls button {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+  .social-icons {
+    gap: 8px;
+  }
+  .install-button {
+    font-size: 13px;
+    padding: 5px 10px;
   }
 }
